@@ -1,1 +1,0 @@
-web: gunicorn blogchirayu.wsgi --log-file -
