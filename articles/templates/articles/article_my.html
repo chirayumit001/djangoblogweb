@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>Your Articles list</h1>
+<div class="articles">
+  <div class="article">
+  <h1>Hello your article</h1>
+  {% for article in articles %}
+  <h1>{{article.authors}}</h1>
+  {% ifequal article.authors request.user.username %}
+  <div class="article">
+    <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+    <p>{{article.snippet}}</p>
+    <p>{{article.authors}}</p>
+    <p>{{article.date}}</p>
+  </div>
+  {% endifequal %}
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
